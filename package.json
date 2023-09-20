@@ -1,0 +1,29 @@
+{
+  "name": "civots",
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/civots.umd.cjs",
+  "module": "./dist/civots.js",
+  "exports": {
+    ".": {
+      "import": "./dist/civots.js",
+      "require": "./dist/civots.umd.cjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.1.0",
+    "msw": "^1.3.1",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vitest": "^0.34.4"
+  }
+}
