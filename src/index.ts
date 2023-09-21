@@ -1,5 +1,5 @@
-import { Config } from "./resources/base";
-import { Regions } from "./resources/regions";
+import { Config } from './resources/base';
+import { Regions } from './resources/regions';
 
 export class Civo {
   regions: Regions;

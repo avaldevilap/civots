@@ -1,4 +1,4 @@
-import { NoArgs } from "../../types";
+import { NoArgs } from '../../types';
 
 export declare type Routes = {
   regions: NoArgs;

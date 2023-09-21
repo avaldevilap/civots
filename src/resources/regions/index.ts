@@ -1,7 +1,7 @@
-import { Base } from "../base";
-import type { Region } from "./types";
+import { Base } from '../base';
+import type { Region } from './types';
 
-const resourceName = "regions";
+const resourceName = 'regions';
 
 export class Regions extends Base {
   listRegions() {
@@ -36,6 +36,6 @@ export class Regions extends Base {
       return found;
     }
 
-    throw new Error("No default region found");
+    throw new Error('No default region found');
   }
 }

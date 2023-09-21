@@ -1,14 +1,14 @@
-import { faker } from "@faker-js/faker";
-import { Region } from "../resources/regions/types";
+import { faker } from '@faker-js/faker';
+import { Region } from '../resources/regions/types';
 
 export function createRandomRegion(): Region {
   const country = faker.location.countryCode();
   const country_name = faker.location.country();
 
   return {
-    code: faker.helpers.arrayElement(["LON1", "NYC1"]),
+    code: faker.helpers.arrayElement(['LON1', 'NYC1']),
     name: faker.location.city(),
-    type: faker.helpers.arrayElement(["civostack", "otherstack"]),
+    type: faker.helpers.arrayElement(['civostack', 'otherstack']),
     default: faker.datatype.boolean(),
     out_of_capacity: faker.datatype.boolean(),
     country,

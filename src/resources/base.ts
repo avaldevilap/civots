@@ -1,4 +1,4 @@
-type RegionCode = "LON1" | "NYC1";
+type RegionCode = 'LON1' | 'NYC1';
 
 export type Config = {
   apiKey: string;
@@ -11,14 +11,14 @@ export abstract class Base {
 
   constructor(config: Config) {
     this.apiKey = config.apiKey;
-    this.regionCode = config.regionCode || "LON1";
+    this.regionCode = config.regionCode || 'LON1';
   }
 
   protected request<T>(endpoint: string, options?: RequestInit): Promise<T> {
     const url = new URL(`https://api.civo.com/v2${endpoint}`);
 
     const headers = {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       Authorization: `Bearer ${this.apiKey}`,
     };
 
