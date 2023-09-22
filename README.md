@@ -6,6 +6,7 @@ import { Civo } from 'civots';
 
 const client = new Civo({
   apiKey: '<CIVO_API_KEY>',
+  regionCode: '<REGION_CODE>', // 'LON1' by default
 });
 
 const network = await client.networks.getDefaultNetwork();
