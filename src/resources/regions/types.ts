@@ -1,28 +1,33 @@
+import { z } from 'zod';
+
 import { NoArgs } from '../../types';
 
-export declare type Routes = {
-  regions: NoArgs;
+export type Routes = {
+  '/regions': NoArgs;
 };
 
-export declare type Region = {
-  code: string;
-  name: string;
-  type: string;
-  out_of_capacity: boolean;
-  country: string;
-  country_name: string;
-  features: Feature;
-  default: boolean;
-};
+export type Region = z.infer<typeof RegionSchema>;
+export type Feature = z.infer<typeof FeatureSchema>;
 
-export declare type Feature = {
-  iaas: boolean;
-  kubernetes: boolean;
-  object_store: boolean;
-  loadbalancer: boolean;
-  dbaas: boolean;
-  volume: boolean;
-  paas: boolean;
-  kfaas: boolean;
-  public_ip_node_pools: boolean;
-};
+export const FeatureSchema = z.object({
+  iaas: z.boolean(),
+  kubernetes: z.boolean(),
+  object_store: z.boolean(),
+  loadbalancer: z.boolean(),
+  dbaas: z.boolean(),
+  volume: z.boolean(),
+  paas: z.boolean(),
+  kfaas: z.boolean(),
+  public_ip_node_pools: z.boolean().optional(),
+});
+
+export const RegionSchema = z.object({
+  code: z.string(),
+  name: z.string(),
+  type: z.string(),
+  out_of_capacity: z.boolean(),
+  country: z.string(),
+  country_name: z.string(),
+  features: FeatureSchema,
+  default: z.boolean(),
+});

@@ -1,11 +1,14 @@
-import { Base } from '../base';
-import type { Region } from './types';
+import { z } from 'zod';
 
-const resourceName = 'regions';
+import { Base } from '../base';
+import { RegionSchema } from './types';
 
 export class Regions extends Base {
   listRegions() {
-    return this.request<Region[]>(`/${resourceName}`);
+    return this.request(z.array(RegionSchema), {
+      route: '/regions',
+      params: undefined,
+    });
   }
 
   async findRegion(search: string) {

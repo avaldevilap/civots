@@ -1,14 +1,9 @@
-import { expect, test, beforeAll, afterEach, afterAll } from 'vitest';
-import { server } from '../mocks/server';
+import { expect, test } from 'vitest';
 import { Civo } from '..';
 
-beforeAll(() => server.listen());
-
-afterEach(() => server.resetHandlers());
-
-afterAll(() => server.close());
-
-const client = new Civo({ apiKey: 'kjahfdkasdkhaskdjah' });
+const client = new Civo({
+  apiKey: 'NUBLXW5cAz01M26drb0Pj9FiVl7uxZ4nmQsgapvRKhyGIwDkfq',
+});
 
 test('get all regions', async () => {
   const regions = await client.regions.listRegions();

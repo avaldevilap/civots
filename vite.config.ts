@@ -1,5 +1,7 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
+import dts from 'vite-plugin-dts';
+import pkg from './package.json' assert { type: 'json' };
 
 export default defineConfig({
   build: {
@@ -7,5 +9,10 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'civots',
     },
+    rollupOptions: {
+      external: [...Object.keys(pkg.dependencies), /^node:.*/],
+    },
+    target: 'esnext',
   },
+  plugins: [dts()],
 });
