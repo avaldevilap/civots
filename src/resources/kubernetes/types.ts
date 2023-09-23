@@ -4,7 +4,7 @@ import { ClusterID, NoArgs } from '../../types';
 
 export type Routes = {
   '/kubernetes/clusters': NoArgs;
-  '/kubernetes/clusters/:clusterId': ClusterID;
+  '/kubernetes/clusters/:clusterId': { clusterId: ClusterID };
 };
 
 export type KubernetesInstance = z.infer<typeof KubernetesInstanceSchema>;

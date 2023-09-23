@@ -3,7 +3,7 @@ import { Civo } from '..';
 import { faker } from '@faker-js/faker';
 
 const client = new Civo({
-  apiKey: 'NUBLXW5cAz01M26drb0Pj9FiVl7uxZ4nmQsgapvRKhyGIwDkfq',
+  apiKey: import.meta.env.API_KEY,
 });
 
 afterAll(async () => {

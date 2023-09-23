@@ -6,8 +6,8 @@ import {
 } from './types';
 
 export class Kubernetes extends Base {
-  listKubernetesClusters() {
-    return this.request(PaginatedKubernetesClustersSchema, {
+  async listKubernetesClusters() {
+    return await this.request(PaginatedKubernetesClustersSchema, {
       route: '/kubernetes/clusters',
       params: undefined,
     });
@@ -50,7 +50,7 @@ export class Kubernetes extends Base {
   async getKubernetesCluster(clusterId: string) {
     return await this.request(KubernetesClusterSchema, {
       route: '/kubernetes/clusters/:clusterId',
-      params: clusterId,
+      params: { clusterId },
     });
   }
 

@@ -2,7 +2,7 @@ import { expect, test } from 'vitest';
 import { Civo } from '..';
 
 const client = new Civo({
-  apiKey: 'NUBLXW5cAz01M26drb0Pj9FiVl7uxZ4nmQsgapvRKhyGIwDkfq',
+  apiKey: import.meta.env.API_KEY,
 });
 
 test('create a new cluster', async () => {
