@@ -3,10 +3,11 @@ import { Civo } from '..';
 
 const client = new Civo({
   apiKey: import.meta.env.API_KEY,
+  regionCode: 'LON1',
 });
 
 test('create a new cluster', async () => {
-  const network = await client.networks.getDefaultNetwork();
+  const network = await client.networks.getDefault();
   const clusters = await client.kubernetes.listKubernetesClusters();
   if (clusters.items.length === 0) {
     const cluster = await client.kubernetes.newKubernetesClusters({

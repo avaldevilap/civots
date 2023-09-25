@@ -1,21 +1,5 @@
 import { z } from 'zod';
 
-import { NoArgs, NetworkID, SubnetID } from '../../types';
-
-export type Routes = {
-  '/networks': NoArgs;
-  '/networks/:networkId': { networkId: NetworkID };
-  '/networks/:networkId/subnets': NetworkID;
-  '/networks/:networkId/subnets/:subnetId': {
-    networkId: NetworkID;
-    subnetId: SubnetID;
-  };
-  '/networks/:networkId/subnets/:subnetId/routes': {
-    networkId: NetworkID;
-    subnetId: SubnetID;
-  };
-};
-
 export type Network = z.infer<typeof NetworkSchema>;
 export type Subnet = z.infer<typeof SubnetSchema>;
 export type SubnetConfig = z.infer<typeof SubnetConfigSchema>;
@@ -52,6 +36,9 @@ export const SubnetSchema = z.object({
 export const SubnetConfigSchema = z.object({
   name: z.string(),
 });
+export function isSubnetConfig(data: unknown): data is SubnetConfig {
+  return SubnetConfigSchema.safeParse(data).success;
+}
 
 // Route represents a route within a subnet
 export const RouteSchema = z.object({
@@ -67,6 +54,9 @@ export const CreateRouteSchema = z.object({
   resource_id: z.string(),
   resource_type: z.string(),
 });
+export function isCreateRoute(data: unknown): data is CreateRoute {
+  return CreateRouteSchema.safeParse(data).success;
+}
 
 // NetworkConfig contains incoming request parameters for the network object
 export const NetworkConfigSchema = z.object({
@@ -79,6 +69,9 @@ export const NetworkConfigSchema = z.object({
   nameservers_v6: z.array(z.string()).optional(),
   region: z.string(),
 });
+export function isNetworkConfig(data: unknown): data is NetworkConfig {
+  return NetworkConfigSchema.safeParse(data).success;
+}
 
 // NetworkResult represents the result from a network create/update call
 export const NetworkResultSchema = z.object({
