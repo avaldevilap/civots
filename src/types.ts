@@ -1,6 +1,11 @@
-export type NoArgs = undefined;
-export type RegionID = string;
-export type InstanceID = string;
-export type ClusterID = string;
-export type NetworkID = string;
-export type SubnetID = string;
+import { z } from 'zod';
+
+export type SimpleResponse = z.infer<typeof SimpleResponseSchema>;
+
+export const SimpleResponseSchema = z.object({
+  id: z.string(),
+  result: z.string(),
+  code: z.string(),
+  reason: z.string(),
+  details: z.string(),
+});

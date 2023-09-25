@@ -3,17 +3,18 @@ import { z } from 'zod';
 import { Base } from '../base';
 import { RegionSchema } from './types';
 
-export class Regions extends Base {
-  listRegions() {
+export class RegionsApi extends Base {
+  list() {
+    const searchParams = new URLSearchParams({ region: this.regionCode });
     return this.request(z.array(RegionSchema), {
-      route: '/regions',
-      params: undefined,
+      url: '/regions',
+      searchParams,
     });
   }
 
-  async findRegion(search: string) {
+  async find(search: string) {
     search = search.toLowerCase();
-    const regions = await this.listRegions();
+    const regions = await this.list();
 
     const found = regions.find((region) => {
       const name = region.name.toLowerCase();
@@ -31,8 +32,8 @@ export class Regions extends Base {
     throw new Error(`Unable to find ${search}, zero matches`);
   }
 
-  async getDefaultRegion() {
-    const regions = await this.listRegions();
+  async getDefault() {
+    const regions = await this.list();
     const found = regions.find((region) => region.default);
 
     if (found) {
