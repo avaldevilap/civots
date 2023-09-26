@@ -197,7 +197,7 @@ export class NetworksApi extends Base {
     });
 
     return this.request(NetworkResultSchema, `/networks/${id}`, {
-      method: 'POST',
+      method: 'PUT',
       body,
     });
   }

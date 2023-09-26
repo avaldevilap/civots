@@ -1,12 +1,5 @@
 import { z } from 'zod';
 
-import { ClusterID, NoArgs } from '../../types';
-
-export type Routes = {
-  '/kubernetes/clusters': NoArgs;
-  '/kubernetes/clusters/:clusterId': { clusterId: ClusterID };
-};
-
 export type KubernetesInstance = z.infer<typeof KubernetesInstanceSchema>;
 export type KubernetesPool = z.infer<typeof KubernetesPoolSchema>;
 export type KubernetesInstalledApplication = z.infer<
@@ -159,6 +152,11 @@ export const KubernetesClusterPoolConfigSchema = z.object({
   size: z.string().optional(),
   public_ip_node_pool: z.boolean().optional(),
 });
+export function isKubernetesClusterPoolConfig(
+  data: unknown,
+): data is KubernetesClusterPoolConfig {
+  return KubernetesClusterPoolConfigSchema.safeParse(data).success;
+}
 
 // KubernetesClusterConfig is used to create a new cluster
 export const KubernetesClusterConfigSchema = z.object({
@@ -177,6 +175,11 @@ export const KubernetesClusterConfigSchema = z.object({
   firewall_rule: z.string().optional(),
   cni_plugin: z.string().optional(),
 });
+export function isKubernetesClusterConfig(
+  data: unknown,
+): data is KubernetesClusterConfig {
+  return KubernetesClusterConfigSchema.safeParse(data).success;
+}
 
 // KubernetesPlanConfiguration is a value within a configuration for
 // an application's plan
