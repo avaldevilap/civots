@@ -1,4 +1,5 @@
 import { rest } from 'msw';
+
 import { createRandomRegion } from './utils';
 
 export const handlers = [

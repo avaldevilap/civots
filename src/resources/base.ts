@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { ResponseError, isErrorResponse } from '../errors';
+import { isErrorResponse, ResponseError } from '../errors';
 
 type RegionCode = string;
 

@@ -1,4 +1,5 @@
 import { z } from 'zod';
+
 import { SubnetSchema } from '../networks/types';
 
 export type Instance = z.infer<typeof InstanceSchema>;

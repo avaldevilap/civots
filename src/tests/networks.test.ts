@@ -1,6 +1,7 @@
-import { expect, test, afterAll } from 'vitest';
-import { Civo } from '..';
 import { faker } from '@faker-js/faker';
+import { afterAll, expect, test } from 'vitest';
+
+import { Civo } from '..';
 import { CreateRoute, SubnetConfig } from '../resources/networks/types';
 
 const client = new Civo({

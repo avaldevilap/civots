@@ -1,19 +1,19 @@
 import { z } from 'zod';
 
+import { SimpleResponseSchema } from '../../types';
 import { Base } from '../base';
 import {
   CreateRoute,
+  isCreateRoute,
+  isNetworkConfig,
+  isSubnetConfig,
   NetworkConfig,
   NetworkResult,
   NetworkResultSchema,
   NetworkSchema,
   SubnetConfig,
   SubnetSchema,
-  isCreateRoute,
-  isNetworkConfig,
-  isSubnetConfig,
 } from './types';
-import { SimpleResponseSchema } from '../../types';
 
 export class NetworksApi extends Base {
   /**

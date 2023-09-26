@@ -1,6 +1,6 @@
+import { Config, NetworksApi, RegionsApi, SubnetsApi } from './resources';
 import { Instances } from './resources/instances';
 import { Kubernetes } from './resources/kubernetes';
-import { Config, RegionsApi, NetworksApi, SubnetsApi } from './resources';
 
 export class Civo {
   regions: RegionsApi;

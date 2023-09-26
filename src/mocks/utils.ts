@@ -1,4 +1,5 @@
 import { faker } from '@faker-js/faker';
+
 import { Region } from '../resources/regions/types';
 
 export function createRandomRegion(): Region {
