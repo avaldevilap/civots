@@ -11,9 +11,9 @@ const client = new Civo({
 
 const network = await client.networks.getDefault();
 
-const clusters = await client.kubernetes.listKubernetesClusters();
+const clusters = await client.kubernetes.listClusters();
 
-const cluster = await client.kubernetes.newKubernetesClusters({
+const cluster = await client.kubernetes.createCluster({
   name: 'mycluster',
   network_id: network.id,
 });
