@@ -15,7 +15,7 @@ import {
   PaginatedKubernetesClustersSchema,
 } from './types';
 
-export class Kubernetes extends Base {
+export class KubernetesApi extends Base {
   /**
    * Lists all Kubernetes clusters.
    *

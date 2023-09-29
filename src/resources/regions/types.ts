@@ -1,11 +1,5 @@
 import { z } from 'zod';
 
-import { NoArgs } from '../../types';
-
-export type Routes = {
-  '/regions': NoArgs;
-};
-
 export type Region = z.infer<typeof RegionSchema>;
 export type Feature = z.infer<typeof FeatureSchema>;
 

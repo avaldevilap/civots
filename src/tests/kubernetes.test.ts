@@ -9,9 +9,9 @@ const client = new Civo({
 
 test('create a new cluster', async () => {
   const network = await client.networks.getDefault();
-  const clusters = await client.kubernetes.listKubernetesClusters();
+  const clusters = await client.kubernetes.listClusters();
   if (clusters.items.length === 0) {
-    const cluster = await client.kubernetes.newKubernetesClusters({
+    const cluster = await client.kubernetes.createCluster({
       name: 'mycluster',
       network_id: network.id,
     });
@@ -23,7 +23,7 @@ test('create a new cluster', async () => {
 });
 
 test('get all clusters', async () => {
-  const clusters = await client.kubernetes.listKubernetesClusters();
+  const clusters = await client.kubernetes.listClusters();
 
   expect(clusters).toBeTruthy();
 });
