@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+export type DiskImage = z.infer<typeof DiskImageSchema>;
+
 // DiskImage represents a DiskImage for launching instances from
 export const DiskImageSchema = z.object({
   id: z.string(),
@@ -10,3 +12,6 @@ export const DiskImageSchema = z.object({
   description: z.string().optional(),
   label: z.string().optional(),
 });
+export function isDiskImage(data: unknown): data is DiskImage {
+  return DiskImageSchema.safeParse(data).success;
+}

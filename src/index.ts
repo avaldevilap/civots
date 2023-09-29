@@ -1,5 +1,6 @@
 import {
   Config,
+  DiskImagesApi,
   InstancesApi,
   KubernetesApi,
   NetworksApi,
@@ -13,6 +14,7 @@ export class Civo {
   subnets: SubnetsApi;
   kubernetes: KubernetesApi;
   instances: InstancesApi;
+  diskImages: DiskImagesApi;
 
   constructor(config: Config) {
     this.regions = new RegionsApi(config);
@@ -20,5 +22,6 @@ export class Civo {
     this.subnets = new SubnetsApi(config);
     this.kubernetes = new KubernetesApi(config);
     this.instances = new InstancesApi(config);
+    this.diskImages = new DiskImagesApi(config);
   }
 }
