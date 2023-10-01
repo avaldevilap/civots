@@ -9,3 +9,12 @@ export const SimpleResponseSchema = z.object({
   reason: z.string(),
   details: z.string(),
 });
+
+export function createPaginatedResponse<T>(schema: z.ZodType<T>) {
+  return z.object({
+    page: z.number(),
+    per_page: z.number(),
+    pages: z.number(),
+    items: z.array(schema),
+  });
+}
