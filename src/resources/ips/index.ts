@@ -1,16 +1,16 @@
 import invariant from 'tiny-invariant';
 
+import { SimpleResponseSchema } from '../../types';
 import { Base } from '..';
 import {
   Actions,
   CreateIPRequest,
   IPSchema,
-  PaginatedIPsSchema,
-  UpdateIPRequest,
   isCreateIPRequest,
   isUpdateIPRequest,
+  PaginatedIPsSchema,
+  UpdateIPRequest,
 } from './types';
-import { SimpleResponseSchema } from '../../types';
 
 export class IPApi extends Base {
   list() {
