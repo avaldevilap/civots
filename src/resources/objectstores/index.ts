@@ -3,23 +3,23 @@ import invariant from 'tiny-invariant';
 import { SimpleResponseSchema } from '../../types';
 import { Base } from '..';
 import {
-  CreateKfClusterReq,
-  isCreateKfClusterReq,
-  isUpdateKfClusterReq,
-  KfClusterSchema,
-  PaginatedKfClustersSchema,
-  UpdateKfClusterReq,
+  CreateObjectStoreRequest,
+  isCreateObjectStoreRequestSchema,
+  isUpdateObjectStoreRequestSchema,
+  ObjectStoreSchema,
+  PaginatedObjectStoresSchema,
+  UpdateObjectStoreRequest,
 } from './types';
 
-export class KfClusterApi extends Base {
+export class ObjectStoreApi extends Base {
   list() {
-    return this.request(PaginatedKfClustersSchema, '/kfclusters');
+    return this.request(PaginatedObjectStoresSchema, '/objectstores');
   }
 
   get(id: string) {
     invariant(id, 'ID is required');
 
-    return this.request(KfClusterSchema, `/kfclusters/${id}`);
+    return this.request(ObjectStoreSchema, `/objectstores/${id}`);
   }
 
   async find(search: string) {
@@ -42,28 +42,28 @@ export class KfClusterApi extends Base {
     throw new Error(`Unable to find ${search}, zero matches`);
   }
 
-  create(data: CreateKfClusterReq) {
-    if (!isCreateKfClusterReq(data)) {
+  create(data: CreateObjectStoreRequest) {
+    if (!isCreateObjectStoreRequestSchema(data)) {
       throw new Error('Invalid data');
     }
 
-    const body = JSON.stringify({ region: this.regionCode, ...data });
+    const body = JSON.stringify(data);
 
-    return this.request(KfClusterSchema, '/kfclusters', {
+    return this.request(ObjectStoreSchema, '/objectstores', {
       method: 'POST',
       body,
     });
   }
 
-  update(id: string, data: UpdateKfClusterReq) {
+  update(id: string, data: UpdateObjectStoreRequest) {
     invariant(id, 'ID is required');
-    if (!isUpdateKfClusterReq(data)) {
+    if (!isUpdateObjectStoreRequestSchema(data)) {
       throw new Error('Invalid data');
     }
 
-    const body = JSON.stringify({ region: this.regionCode, ...data });
+    const body = JSON.stringify(data);
 
-    return this.request(KfClusterSchema, `/kfclusters/${id}`, {
+    return this.request(ObjectStoreSchema, `/objectstores/${id}`, {
       method: 'PUT',
       body,
     });
@@ -72,7 +72,7 @@ export class KfClusterApi extends Base {
   destroy(id: string) {
     invariant(id, 'ID is required');
 
-    return this.request(SimpleResponseSchema, `/kfclusters/${id}`, {
+    return this.request(SimpleResponseSchema, `/objectstores/${id}`, {
       method: 'DELETE',
     });
   }

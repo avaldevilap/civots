@@ -69,7 +69,7 @@ export class LoadBalancerApi extends Base {
     });
   }
 
-  delete(id: string) {
+  destroy(id: string) {
     return this.request(SimpleResponseSchema, `/loadbalancers/${id}`, {
       method: 'DELETE',
     });
