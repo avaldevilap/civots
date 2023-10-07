@@ -42,7 +42,7 @@ export const CreateObjectStoreRequestSchema = z.object({
   access_key_id: z.string(),
   region: z.string().optional(),
 });
-export function isCreateObjectStoreRequestSchema(
+export function isCreateObjectStoreRequest(
   data: unknown,
 ): data is CreateObjectStoreRequest {
   return CreateObjectStoreRequestSchema.safeParse(data).success;
@@ -53,7 +53,7 @@ export const UpdateObjectStoreRequestSchema = z.object({
   max_size_gb: z.number(),
   region: z.string().optional(),
 });
-export function isUpdateObjectStoreRequestSchema(
+export function isUpdateObjectStoreRequest(
   data: unknown,
 ): data is UpdateObjectStoreRequest {
   return UpdateObjectStoreRequestSchema.safeParse(data).success;

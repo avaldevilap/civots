@@ -4,8 +4,8 @@ import { SimpleResponseSchema } from '../../types';
 import { Base } from '..';
 import {
   CreateObjectStoreRequest,
-  isCreateObjectStoreRequestSchema,
-  isUpdateObjectStoreRequestSchema,
+  isCreateObjectStoreRequest,
+  isUpdateObjectStoreRequest,
   ObjectStoreSchema,
   PaginatedObjectStoresSchema,
   UpdateObjectStoreRequest,
@@ -43,7 +43,7 @@ export class ObjectStoreApi extends Base {
   }
 
   create(data: CreateObjectStoreRequest) {
-    if (!isCreateObjectStoreRequestSchema(data)) {
+    if (!isCreateObjectStoreRequest(data)) {
       throw new Error('Invalid data');
     }
 
@@ -57,7 +57,7 @@ export class ObjectStoreApi extends Base {
 
   update(id: string, data: UpdateObjectStoreRequest) {
     invariant(id, 'ID is required');
-    if (!isUpdateObjectStoreRequestSchema(data)) {
+    if (!isUpdateObjectStoreRequest(data)) {
       throw new Error('Invalid data');
     }
 
