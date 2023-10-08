@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { TaintSchema } from '../../types';
+
 export type KubernetesInstance = z.infer<typeof KubernetesInstanceSchema>;
 export type KubernetesPool = z.infer<typeof KubernetesPoolSchema>;
 export type KubernetesInstalledApplication = z.infer<
@@ -57,7 +59,7 @@ export const KubernetesPoolSchema = z.object({
   instance_names: z.array(z.string()).optional(),
   instances: z.array(KubernetesInstanceSchema).optional(),
   labels: z.record(z.string()).optional(),
-  taints: z.array(z.string()).optional(),
+  taints: z.array(TaintSchema).optional(),
   public_ip_node_pool: z.boolean().optional(),
 });
 
@@ -96,7 +98,7 @@ export const RequiredPoolsSchema = z.object({
   size: z.string(),
   count: z.number(),
   labels: z.record(z.string()).optional().nullable(),
-  taints: z.array(z.string()).optional().nullable(),
+  taints: z.array(TaintSchema).optional().nullable(),
   public_ip_node_pool: z.boolean().optional(),
 });
 
