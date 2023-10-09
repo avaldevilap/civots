@@ -38,12 +38,12 @@ export class SSHKeyApi extends Base {
     search = search.toLowerCase();
     const items = await this.list();
 
-    const found = items.find((region) => {
-      const id = region.id.toLowerCase();
-      const name = region.name.toLowerCase();
+    const found = items.find((item) => {
+      const id = item.id.toLowerCase();
+      const name = item.name.toLowerCase();
 
       if (id.search(search) || name.search(search)) {
-        return region;
+        return item;
       }
     });
 
