@@ -30,6 +30,9 @@ import {
   WebhookApi,
 } from './resources';
 
+/**
+ * A comprehensive API client for the Civo cloud platform.
+ */
 export class Civo {
   accounts: AccountApi;
   actions: ActionApi;
@@ -60,6 +63,11 @@ export class Civo {
   volumes: VolumeApi;
   webhooks: WebhookApi;
 
+  /**
+   * Creates a new Civo API client.
+   *
+   * @param config The Civo API key and other configuration options.
+   */
   constructor(config: Config) {
     this.accounts = new AccountApi(config);
     this.actions = new ActionApi(config);

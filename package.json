@@ -19,7 +19,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "docs": "pnpm dlx typedoc src/resources/**/*.ts"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.1.0",
