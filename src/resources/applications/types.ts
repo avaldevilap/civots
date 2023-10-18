@@ -40,6 +40,9 @@ export const ApplicationConfigSchema = z.object({
   size: z.string(),
   ssh_key_ids: z.array(z.string()).optional(),
 });
+export function isApplicationConfig(data: unknown): data is ApplicationConfig {
+  return ApplicationConfigSchema.safeParse(data).success;
+}
 
 export const UpdateApplicationRequestSchema = z.object({
   name: z.string(),
@@ -52,6 +55,11 @@ export const UpdateApplicationRequestSchema = z.object({
   config: z.array(EnvVarSchema),
   domains: z.array(z.string()),
 });
+export function isUpdateApplicationRequest(
+  data: unknown,
+): data is UpdateApplicationRequest {
+  return UpdateApplicationRequestSchema.safeParse(data).success;
+}
 
 export const PaginatedApplicationsSchema = z.object({
   page: z.number(),
