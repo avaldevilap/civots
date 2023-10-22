@@ -1,3 +1,5 @@
+[![Node.js Package](https://github.com/avaldevilap/civots/actions/workflows/npm-publish.yml/badge.svg?branch=master)](https://github.com/avaldevilap/civots/actions/workflows/npm-publish.yml)
+
 # civots
 Typescript client for Civo API
 
