@@ -23,10 +23,10 @@ export abstract class Base {
   }
 
   protected async request<T>(
-    schema: z.ZodType<T>,
+    responseSchema: z.ZodType<T>,
     resource: Partial<URL | RequestInfo>,
     options?: RequestInit,
-  ): Promise<z.infer<typeof schema>> {
+  ) {
     const url = new URL(`/${this.apiVersion}${resource}`, this.baseUrl);
 
     const headers = {
@@ -57,6 +57,6 @@ export abstract class Base {
       throw new ResponseError('Ooops! something went wrong!', response);
     }
 
-    return schema.parse(data);
+    return responseSchema.parse(data);
   }
 }

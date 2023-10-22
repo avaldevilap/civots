@@ -1,46 +1,44 @@
 {
   "name": "civots",
-  "version": "0.0.0",
+  "description": "Civots is a client library for accessing the Civo cloud API.",
+  "version": "0.0.1",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/civots.umd.cjs",
-  "module": "./dist/civots.js",
-  "exports": {
-    ".": {
-      "import": "./dist/civots.js",
-      "require": "./dist/civots.umd.cjs"
-    }
-  },
+  "main": "./dist/civots.js",
+  "types": "./dist/civots.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "prepublishOnly": "pnpm run build",
     "preview": "vite preview",
     "test": "vitest",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "docs": "pnpm dlx typedoc src/resources/**/*.ts"
   },
+  "peerDependencies": {
+    "zod": "^3.22.4",
+    "tiny-invariant": "^1.3.1"
+  },
   "devDependencies": {
-    "@faker-js/faker": "^8.1.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.2",
-    "@typescript-eslint/parser": "^6.7.2",
-    "eslint": "^8.49.0",
+    "@faker-js/faker": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "msw": "^1.3.1",
+    "msw": "^1.3.2",
     "prettier": "^3.0.3",
-    "prettier-eslint": "^15.0.1",
-    "typescript": "^5.2.2",
-    "vite": "^4.4.5",
-    "vitest": "^0.34.4"
-  },
-  "dependencies": {
+    "prettier-eslint": "^16.1.1",
     "tiny-invariant": "^1.3.1",
-    "vite-plugin-dts": "^3.5.4",
-    "zod": "^3.22.3"
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vite-plugin-dts": "^3.6.0",
+    "vitest": "^0.34.6",
+    "zod": "^3.22.4"
   }
 }

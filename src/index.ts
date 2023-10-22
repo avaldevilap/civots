@@ -3,7 +3,7 @@ import {
   ActionApi,
   ApplicationApi,
   ChargeApi,
-  Config,
+  type Config,
   DatabaseApi,
   DatabaseBackupApi,
   DiskImagesApi,
