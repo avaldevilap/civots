@@ -2,7 +2,7 @@ import invariant from 'tiny-invariant';
 import { z } from 'zod';
 
 import { SimpleResponseSchema } from '../../types';
-import { Base } from '..';
+import { Base } from '../base';;
 import {
   FirewallConfig,
   FirewallResultSchema,

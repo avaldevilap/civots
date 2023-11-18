@@ -1,7 +1,7 @@
 import invariant from 'tiny-invariant';
 import { z } from 'zod';
 
-import { Base } from '..';
+import { Base } from '../base';;
 import { DiskImageSchema } from './types';
 
 export class DiskImagesApi extends Base {

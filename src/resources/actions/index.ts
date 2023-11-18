@@ -1,4 +1,4 @@
-import { Base } from '..';
+import { Base } from '../base';;
 import {
   type ActionListRequest,
   isActionListRequest,
