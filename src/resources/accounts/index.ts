@@ -1,4 +1,4 @@
-import { Base } from '..';
+import { Base } from '../base';
 import { PaginatedAccountsSchema } from './types';
 
 export class AccountApi extends Base {

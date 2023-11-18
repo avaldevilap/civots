@@ -1,7 +1,7 @@
 import invariant from 'tiny-invariant';
 
 import { SimpleResponseSchema } from '../../types';
-import { Base } from '..';
+import { Base } from '../base';;
 import {
   Actions,
   CreateIPRequest,

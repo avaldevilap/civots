@@ -1,7 +1,7 @@
 import invariant from 'tiny-invariant';
 import { z } from 'zod';
 
-import { Base } from '..';
+import { Base } from '../base';;
 import { AccountSchema, OrganizationSchema } from './types';
 
 export class OrganizationApi extends Base {

@@ -27,7 +27,8 @@ export abstract class Base {
     resource: Partial<URL | RequestInfo>,
     options?: RequestInit,
   ) {
-    const url = new URL(`/${this.apiVersion}${resource}`, this.baseUrl);
+    // Fix this to only send the region if the request is GET
+    const url = new URL(`/${this.apiVersion}${resource}/?region=${this.regionCode}`, this.baseUrl);
 
     const headers = {
       'Content-Type': 'application/json',

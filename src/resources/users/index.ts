@@ -1,6 +1,6 @@
 import invariant from 'tiny-invariant';
 
-import { Base } from '..';
+import { Base } from '../base';;
 import { UserEverythingSchema } from './types';
 
 export class UserApi extends Base {
